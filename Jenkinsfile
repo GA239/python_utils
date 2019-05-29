@@ -4,16 +4,18 @@ pipeline {
     stage('Build') {
       agent any
       steps {
-        echo '${BUILD_TAG}'
-        sh '''python -m venv ${BUILD_TAG}
+        echo 'build'
+        sh '''echo ${BUILD_TAG}
+python -m venv ${BUILD_TAG}
 source ${BUILD_TAG}/Scripts/activate
 pip install -r requirements-dev.txt'''
       }
     }
     stage('Test') {
       steps {
-        echo '${BUILD_TAG}'
-        sh '''source ${BUILD_TAG}/Scripts/activate
+        echo 'test'
+        sh '''echo ${BUILD_TAG}
+source ${BUILD_TAG}/Scripts/activate
 python -m pytest tests/ -svv'''
       }
     }
