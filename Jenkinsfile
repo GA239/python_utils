@@ -6,7 +6,8 @@ pipeline {
       steps {
         sh '''python -m venv env_${BUILD_TAG}
 source env_${BUILD_TAG}/Scripts/activate
-        '''
+pip install -r requirements-dev.txt
+pip list'''
       }
     }
     stage('Test') {
