@@ -6,8 +6,8 @@ pipeline {
       steps {
         echo 'build'
         sh '''echo ${BUILD_TAG}
-python -m venv ${BUILD_TAG}
-source ${BUILD_TAG}/Scripts/activate
+# python -m venv ${BUILD_TAG}
+# source ${BUILD_TAG}/Scripts/activate
 pip install -r requirements-dev.txt'''
       }
     }
@@ -15,7 +15,7 @@ pip install -r requirements-dev.txt'''
       steps {
         echo 'test'
         sh '''echo ${BUILD_TAG}
-source ${BUILD_TAG}/Scripts/activate
+# source ${BUILD_TAG}/Scripts/activate
 python -m pytest tests/ -svv'''
       }
     }
