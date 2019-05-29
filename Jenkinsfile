@@ -17,7 +17,7 @@ pip install -r requirements-dev.txt'''
         echo 'test'
         sh '''echo ${WORKSPACE}
 echo ${BUILD_TAG}
-# source ${BUILD_TAG}/Scripts/activate
+source ${BUILD_TAG}/Scripts/activate
 python -m pytest tests/ -svv'''
       }
     }
