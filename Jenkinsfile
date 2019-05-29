@@ -1,8 +1,10 @@
 pipeline {
   agent any
+  
+  options { disableConcurrentBuilds() }
+  
   stages {
     stage('Build') {
-      agent any
       steps {
         echo 'build'
         sh '''echo ${WORKSPACE}
