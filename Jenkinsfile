@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       agent any
       steps {
-        sh '''python3 -m venv env_${BUILD_TAG}
+        sh '''python -m venv env_${BUILD_TAG}
 source env_${BUILD_TAG}/Scripts/activate
         '''
       }
