@@ -13,8 +13,7 @@ pip install -r requirements-dev.txt'''
     stage('Test') {
       steps {
         echo 'Testing'
-        sh '''source env_${BUILD_TAG}/Scripts/activate
-pytest tests/ -svv'''
+        sh 'pytest tests/ -svv'
       }
     }
     stage('Deploy') {
