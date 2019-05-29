@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
-                sh python -m venv env_${BUILD_TAG}
+                config/bin/python -m venv env_${BUILD_TAG}
             }
         }
         stage('Test') {
