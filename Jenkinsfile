@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       agent any
       steps {
-        sh 'pwd'
+        sh 'echo "sadsa"'
       }
     }
     stage('Test') {
