@@ -13,7 +13,7 @@ pip install -r requirements-dev.txt'''
     stage('Test') {
       steps {
         echo 'Testing'
-        sh 'pytest tests/ -svv'
+        sh 'python -m pytest tests/ -svv'
       }
     }
     stage('Deploy') {
