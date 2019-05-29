@@ -4,15 +4,17 @@ pipeline {
     stage('Build') {
       agent any
       steps {
+        echo 'Building'
         sh '''python -m venv env_${BUILD_TAG}
 source env_${BUILD_TAG}/Scripts/activate
-pip install -r requirements-dev.txt
-pip list'''
+pip install -r requirements-dev.txt'''
       }
     }
     stage('Test') {
       steps {
         echo 'Testing'
+        sh '''source env_${BUILD_TAG}/Scripts/activate
+pytest tests/ -svv'''
       }
     }
     stage('Deploy') {
