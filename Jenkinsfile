@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building'
-                config/bin/python -m venv env_${BUILD_TAG}
+                sh '''pwd'''
             }
         }
         stage('Test') {
