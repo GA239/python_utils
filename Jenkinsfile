@@ -4,9 +4,8 @@ pipeline {
     stage('Build') {
       agent any
       steps {
-        sh '''
-        python -m venv env_${BUILD_TAG}
-        source env_${BUILD_TAG}/Scripts/activate
+        sh '''python -m venv env_${BUILD_TAG}
+source env_${BUILD_TAG}/Scripts/activate
         '''
       }
     }
@@ -31,7 +30,7 @@ pipeline {
       echo 'This will run only if successful'
 
     }
-    
+
     failure {
       echo 'This will run only if failed'
 
