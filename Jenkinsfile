@@ -7,8 +7,7 @@ pipeline {
         echo 'Building'
         sh '''python -m venv ${BUILD_TAG}
 source ${BUILD_TAG}/Scripts/activate
-pip install -r requirements-dev.txt
-python -m pytest tests/ -svv'''
+pip install -r requirements-dev.txt'''
       }
     }
     stage('Test') {
