@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat '''python -m venv env_${BUILD_TAG}'''
+                sh '''python -m venv env_${BUILD_TAG}'''
             }
         }
         stage('Deploy') {
