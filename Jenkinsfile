@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  
-  options { disableConcurrentBuilds() }
-  
   stages {
     stage('Build') {
       steps {
@@ -20,7 +17,7 @@ pip install -r requirements-dev.txt'''
         sh '''echo ${WORKSPACE}
 echo ${BUILD_TAG}
 source ${BUILD_TAG}/Scripts/activate
-python -m pytest tests/ -svv'''
+python -m pytest tests/ -svv --junit-xml test-reports/results.xml'''
       }
     }
     stage('Deploy') {
@@ -56,5 +53,8 @@ python -m pytest tests/ -svv'''
 
     }
 
+  }
+  options {
+    disableConcurrentBuilds()
   }
 }
