@@ -22,13 +22,15 @@ python -m pytest tests/ -svv --junit-xml test-reports/results.xml'''
     }
     stage('Deploy') {
       steps {
-        echo 'Deploying'
+        echo 'Lint'
+        sh ''' pylint --disable=C python_utils || true'''
       }
     }
   }
   post {
     always {
       echo 'This will always run'
+      junit allowEmptyResults: true, testResults: 'test-reports/results.xml', fingerprint: true
 
     }
 
