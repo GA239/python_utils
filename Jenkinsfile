@@ -29,9 +29,7 @@ python -m pytest tests/ -svv --junit-xml test-reports/results.xml'''
   }
   post {
     always {
-      echo 'This will always run'
       junit allowEmptyResults: true, testResults: 'test-reports/results.xml', fingerprint: true
-
     }
 
     success {
