@@ -29,7 +29,7 @@ python -m pytest tests/ -svv --junit-xml test-reports/results.xml'''
   }
   post {
     always {
-      junit allowEmptyResults: true, testResults: 'test-reports/results.xml', fingerprint: true
+      junit allowEmptyResults: true, testResults: 'test-reports/results.xml'
     }
 
     success {
